@@ -30,12 +30,22 @@ namespace Project_0813L
         public MainPage()
         {
             this.InitializeComponent();
-            dataHelper = new DataHelper();            
+            dataHelper = new DataHelper();
+            ChooBtn.IsEnabled = false;
         }
 
         private void ChooBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (dataHelper.Times < dataHelper.Limit)
+            {
+                NameBlock.Text = dataHelper.Choose();
+                dataHelper.Times += 1;
+            }                
+            else
+            {
+                NameBlock.Text = "FINISH.";
+                ChooBtn.IsEnabled = false;
+            }
         }
 
         private async void LoadBtn_Click(object sender, RoutedEventArgs e)
@@ -52,7 +62,10 @@ namespace Project_0813L
                 var randoms = await file.OpenReadAsync();                
                 bool isSuccess = dataHelper.LoadNames(new StreamReader(randoms.AsStreamForRead()));
                 if (isSuccess)
+                {
                     NameBlock.Text = "START!!!";
+                    ChooBtn.IsEnabled = true;
+                }                    
             }                        
         }
     }

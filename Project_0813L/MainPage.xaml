@@ -12,6 +12,7 @@
             <TextBlock x:Name="NameBlock" TextWrapping="Wrap" FontSize="36" HorizontalAlignment="Center"/>
             <Button x:Name="ChooBtn" Content="Click!" HorizontalAlignment="Center" FontSize="24" Width="159" Click="ChooBtn_Click"/>
         </StackPanel>
-        <Button x:Name="LoadBtn" Content="Browse..." Margin="272,598,0,10" Click="LoadBtn_Click"/>
+        
+        <Button x:Name="LoadBtn" Content="Browse..." Click="LoadBtn_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 10, 10"/>
     </Grid>
 </Page>

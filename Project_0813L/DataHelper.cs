@@ -11,11 +11,14 @@ namespace Project_0813L
     {
         private string[] Names { get; set; }
         private bool[] Check { get; set; }
+        public int Limit { get; private set; }
+        public int Times { get; set; }
         private Random random;
 
         public DataHelper()
         {
             random = new Random();
+            Times = 0;
         }
 
         public bool LoadNames(StreamReader stream)
@@ -27,19 +30,21 @@ namespace Project_0813L
             }
             
             Names = names.ToArray();
+            Check = new bool[Names.Length];
+            Limit = Names.Length;
             return true;
         }
 
         public string Choose()
         {            
-            int limit = Names.Length;
-            int index = random.Next(limit);
+            int index = random.Next(Limit);
 
             while (Check[index])
             {
-                index = random.Next(limit);
+                index = random.Next(Limit);                
             }
 
+            Check[index] = true;
             return Names[index];
         }
     }
