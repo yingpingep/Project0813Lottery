@@ -8,6 +8,10 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <StackPanel VerticalAlignment="Center">
+            <TextBlock x:Name="NameBlock" TextWrapping="Wrap" FontSize="36" HorizontalAlignment="Center"/>
+            <Button x:Name="ChooBtn" Content="Click!" HorizontalAlignment="Center" FontSize="24" Width="159" Click="ChooBtn_Click"/>
+        </StackPanel>
+        <Button x:Name="LoadBtn" Content="Browse..." Margin="272,598,0,10" Click="LoadBtn_Click"/>
     </Grid>
 </Page>
