@@ -36,14 +36,13 @@ namespace Project_0813L
 
         private void ChooBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (dataHelper.Times < dataHelper.Limit)
+            try
             {
                 NameBlock.Text = dataHelper.Choose();
-                dataHelper.Times += 1;
             }                
-            else
+            catch (ArgumentNullException)
             {
-                NameBlock.Text = "FINISH.";
+                NameBlock.Text = "FINISH";
                 ChooBtn.IsEnabled = false;
             }
         }
